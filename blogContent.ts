@@ -5,9 +5,86 @@ export interface BlogPost {
   content: string;
   isPillar?: boolean;
   isProgrammatic?: boolean;
+  isLegal?: boolean;
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "privacy-policy",
+    title: "Privacy Policy",
+    description: "Our commitment to your privacy. Learn how ImgToPDF Fast handles your data with local-first processing.",
+    isLegal: true,
+    content: `
+      <h2>1. Introduction</h2>
+      <p>Welcome to ImgToPDF Fast. We are committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our website (https://imgtopdf-fast.vercel.app/). Our service is designed to convert images to PDF documents directly in your web browser, prioritizing security and data ownership.</p>
+
+      <h2>2. Information We Do Not Collect</h2>
+      <p>Unlike traditional online tools, <strong>ImgToPDF Fast does not collect, store, or share your personal data</strong>. You can use our service completely anonymously without creating an account or providing an email address.</p>
+
+      <h2>3. File Processing and Storage</h2>
+      <p>All image-to-PDF conversion happens <strong>locally in your browser</strong> using client-side technology. Your images are never uploaded to our servers, and we have no access to the content of your files. Once you close your browser tab, any temporary data used for the conversion is cleared from your device's memory.</p>
+
+      <h2>4. Cookies and Advertising</h2>
+      <p>We use third-party services to support our free tool:</p>
+      <ul>
+        <li><strong>Google AdSense:</strong> We use Google AdSense to serve advertisements. Google uses cookies to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our sites and/or other sites on the Internet.</li>
+        <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Ads Settings</a>.</li>
+      </ul>
+
+      <h2>5. Data Security</h2>
+      <p>We use HTTPS (SSL) encryption to ensure that your connection to our website is secure. Since your files never leave your computer, the risk of data interception during transmission to a server is eliminated by design.</p>
+
+      <h2>6. Third-Party Links</h2>
+      <p>Our website contains links to third-party services, such as Ko-fi for donations. We are not responsible for the privacy practices or content of these external sites.</p>
+
+      <h2>7. Changes to This Privacy Policy</h2>
+      <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted.</p>
+
+      <h2>8. Consent</h2>
+      <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+
+      <p><strong>Last Updated:</strong> May 20, 2025</p>
+    `
+  },
+  {
+    slug: "terms-of-use",
+    title: "Terms of Use",
+    description: "The terms and conditions for using ImgToPDF Fast's free online conversion tools.",
+    isLegal: true,
+    content: `
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing and using ImgToPDF Fast (https://imgtopdf-fast.vercel.app/), you accept and agree to be bound by the terms and provision of this agreement.</p>
+
+      <h2>2. Description of Service</h2>
+      <p>ImgToPDF Fast provides a free web-based tool for converting image files (JPG, PNG, WEBP) into PDF documents. The service is provided "as is" and "as available" without any warranty of any kind.</p>
+
+      <h2>3. User Responsibilities</h2>
+      <p>You agree to use this service only for lawful purposes. You are prohibited from using the service to process content that is illegal, infringing, or harmful. Since all processing happens on your device, you are solely responsible for the content you convert and the resulting PDF files.</p>
+
+      <h2>4. Intellectual Property</h2>
+      <p>The layout, design, and original content of ImgToPDF Fast are the intellectual property of the site owners. You maintain full ownership and intellectual property rights over any images you process and the PDFs you generate using our tool.</p>
+
+      <h2>5. Disclaimer of Warranties</h2>
+      <p>The service is provided without warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not guarantee that the service will be uninterrupted or error-free.</p>
+
+      <h2>6. Limitation of Liability</h2>
+      <p>In no event shall ImgToPDF Fast be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, or use, arising out of or in any way connected with the use of our service.</p>
+
+      <h2>7. Third-Party Services</h2>
+      <p>We utilize third-party services like Google AdSense for monetization and Ko-fi for donations. Your use of these features is subject to their respective terms and conditions.</p>
+
+      <h2>8. Changes to the Terms</h2>
+      <p>We reserve the right to modify these terms at any time. Your continued use of the site following any changes signifies your acceptance of the new Terms of Use.</p>
+
+      <h2>9. Governing Law</h2>
+      <p>These terms shall be governed by and defined in accordance with general international commercial practices. Any disputes arising under these terms shall be subject to the non-exclusive jurisdiction of the courts in the jurisdiction where the website owner resides.</p>
+
+      <h2>10. Contact Information</h2>
+      <p>If you have any questions about these Terms, please contact us through our website's resource page.</p>
+
+      <p><strong>Last Updated:</strong> May 20, 2025</p>
+    `
+  },
   {
     slug: "image-to-pdf-guide",
     title: "The Complete Image to PDF Guide: Convert, Organize and Optimize Your Files",

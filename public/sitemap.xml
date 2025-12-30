@@ -7,6 +7,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://imgtopdf-fast.vercel.app/privacy-policy</loc>
+    <lastmod>2025-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://imgtopdf-fast.vercel.app/terms-of-use</loc>
+    <lastmod>2025-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://imgtopdf-fast.vercel.app/image-to-pdf-guide</loc>
     <lastmod>2025-05-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -98,36 +110,6 @@
   </url>
   <url>
     <loc>https://imgtopdf-fast.vercel.app/convert-images-to-pdf-on-iphone</loc>
-    <lastmod>2025-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imgtopdf-fast.vercel.app/convert-images-to-pdf-on-android</loc>
-    <lastmod>2025-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imgtopdf-fast.vercel.app/convert-images-to-pdf-on-desktop</loc>
-    <lastmod>2025-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imgtopdf-fast.vercel.app/convert-images-to-pdf-for-school</loc>
-    <lastmod>2025-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imgtopdf-fast.vercel.app/convert-images-to-pdf-for-work</loc>
-    <lastmod>2025-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://imgtopdf-fast.vercel.app/convert-images-to-pdf-for-scanning</loc>
     <lastmod>2025-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

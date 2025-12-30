@@ -46,14 +46,14 @@ const AppContent: React.FC = () => {
         setCurrentSlug(undefined);
         window.scrollTo(0, 0);
       } 
-      // 3. Blog Posts
+      // 3. Blog Posts & Legal Pages
       else if (path.startsWith('/blog/')) {
         const slug = path.replace('/blog/', '').replace(/\/$/, '');
         setView('blog');
         setCurrentSlug(slug);
         window.scrollTo(0, 0);
       } 
-      // 4. Pillar & Programmatic pages (root-level slugs)
+      // 4. Pillar, Legal & Programmatic pages (root-level slugs)
       else {
         const slug = path.substring(1).replace(/\/$/, '');
         const postExists = blogPosts.some(p => p.slug === slug);
@@ -62,7 +62,6 @@ const AppContent: React.FC = () => {
           setCurrentSlug(slug);
           window.scrollTo(0, 0);
         } else {
-          // Fallback to converter or 404 (here we fallback to home)
           setView('converter');
           setCurrentSlug(undefined);
         }
@@ -70,7 +69,7 @@ const AppContent: React.FC = () => {
     };
 
     window.addEventListener('popstate', handleLocationChange);
-    handleLocationChange(); // Initial check
+    handleLocationChange();
 
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
@@ -82,7 +81,7 @@ const AppContent: React.FC = () => {
         url = '/blog';
       } else {
         const post = blogPosts.find(p => p.slug === slug);
-        if (post?.isPillar || post?.isProgrammatic) {
+        if (post?.isPillar || post?.isProgrammatic || post?.isLegal) {
           url = `/${slug}`;
         } else {
           url = `/blog/${slug}`;
@@ -180,7 +179,6 @@ const AppContent: React.FC = () => {
               <PdfPreview pdfUrl={pdfUrl} onReset={handleReset} />
             ) : (
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                {/* Hero / Step 1 */}
                 <section aria-labelledby="step-1-title">
                   <div className="mb-8 text-center sm:text-left">
                     <h2 id="step-1-title" className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-slate-100 mb-4 leading-tight">
@@ -189,8 +187,6 @@ const AppContent: React.FC = () => {
                     <p className="text-gray-500 dark:text-slate-400 text-lg max-w-2xl leading-relaxed">
                       Transform your JPG, PNG, or WEBP images into a professional PDF document. Fast, secure, and 100% in your browser.
                     </p>
-                    
-                    {/* SUPPORT BANNER (TOP) */}
                     <SupportBanner />
                   </div>
                   
@@ -199,11 +195,9 @@ const AppContent: React.FC = () => {
                     disabled={status === AppStatus.GENERATING} 
                   />
 
-                  {/* Informational Sections for SEO and UX */}
                   {images.length === 0 && <FaqSection />}
                 </section>
 
-                {/* Error Message */}
                 {error && (
                   <div role="alert" className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 p-4 rounded-xl flex items-center gap-3 animate-in fade-in duration-300">
                     <AlertCircle className="shrink-0" size={20} />
@@ -211,7 +205,6 @@ const AppContent: React.FC = () => {
                   </div>
                 )}
 
-                {/* Step 2: Settings & Reorder */}
                 {images.length > 0 && (
                   <section aria-labelledby="step-2-title" className="animate-in slide-in-from-top-2 duration-300 space-y-10">
                     <div>
@@ -270,14 +263,13 @@ const AppContent: React.FC = () => {
         )}
       </main>
 
-      {/* SUPPORT FOOTER (BOTTOM - ABOVE FOOTER) */}
       <SupportFooter />
 
       {/* Footer */}
       <footer className="bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800 py-12 transition-colors duration-300">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
-            <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div className="md:col-span-1">
               <h4 className="font-bold text-gray-900 dark:text-slate-100 mb-4">ImgToPDF Fast</h4>
               <p className="text-sm text-gray-500 dark:text-slate-400 leading-relaxed">
                 The most secure way to convert images to PDF. Your files never leave your device.
@@ -289,6 +281,13 @@ const AppContent: React.FC = () => {
                 <li><button onClick={() => navigate('blog', 'image-to-pdf-guide')} className="hover:text-blue-600 dark:hover:text-blue-400">The Ultimate Guide</button></li>
                 <li><button onClick={() => navigate('blog', 'how-to-convert-images-to-pdf-online')} className="hover:text-blue-600 dark:hover:text-blue-400">Quick Start</button></li>
                 <li><button onClick={() => navigate('blog')} className="hover:text-blue-600 dark:hover:text-blue-400 font-medium">All Resources</button></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 dark:text-slate-100 mb-4">Legal</h4>
+              <ul className="text-sm text-gray-500 dark:text-slate-400 space-y-2">
+                <li><button onClick={() => navigate('blog', 'privacy-policy')} className="hover:text-blue-600 dark:hover:text-blue-400">Privacy Policy</button></li>
+                <li><button onClick={() => navigate('blog', 'terms-of-use')} className="hover:text-blue-600 dark:hover:text-blue-400">Terms of Use</button></li>
               </ul>
             </div>
             <div>
