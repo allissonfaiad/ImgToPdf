@@ -1,0 +1,5 @@
+{
+  "name": "Image to PDF Converter",
+  "description": "A sleek, modern tool to convert single or multiple images into a high-quality PDF document with drag-and-drop reordering.",
+  "requestFramePermissions": []
+}
