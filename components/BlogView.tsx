@@ -92,7 +92,7 @@ const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
 
         <div 
           ref={contentRef}
-          className="prose prose-blue dark:prose-invert max-w-none text-gray-700 dark:text-slate-300 leading-relaxed space-y-6"
+          className="prose prose-blue dark:prose-invert max-w-none text-gray-700 dark:text-slate-300 leading-relaxed space-y-6 prose-headings:text-gray-900 dark:prose-headings:text-slate-100 prose-strong:text-gray-900 dark:prose-strong:text-slate-100"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 

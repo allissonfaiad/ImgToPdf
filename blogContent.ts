@@ -16,9 +16,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Welcome to the ultimate authority on digital document conversion. Whether you need to turn a single photo into a document or merge hundreds of scans into a professional report, this guide covers everything you need to know about the Image to PDF process.</p>
       
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">Quick Guide Summary</h3>
-        <p><strong>To convert images to PDF:</strong> Use a local-first browser tool like ImgToPDF Fast. Upload your JPG, PNG, or WEBP files, arrange them in the desired order, and generate your file. This process is secure because your data never leaves your computer.</p>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">Quick Guide Summary</h3>
+        <p class="mb-0"><strong>To convert images to PDF:</strong> Use a local-first browser tool like ImgToPDF Fast. Upload your JPG, PNG, or WEBP files, arrange them in the desired order, and generate your file. This process is secure because your data never leaves your computer.</p>
       </div>
 
       <h2>Core Topics & Deep Dives</h2>
@@ -43,9 +43,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>In today's digital landscape, transforming visual data into standardized documents is essential. This guide focuses on speed, quality, and data protection.</p>
       
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">Quick Answer: Best Secure Method</h3>
-        <p>The most secure way to convert images to PDF online is using a <strong>client-side converter</strong>. These tools process files directly in your browser, ensuring sensitive data is never uploaded to an external server. Simply upload, sort, and download.</p>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">Quick Answer: Best Secure Method</h3>
+        <p class="mb-0">The most secure way to convert images to PDF online is using a <strong>client-side converter</strong>. These tools process files directly in your browser, ensuring sensitive data is never uploaded to an external server. Simply upload, sort, and download.</p>
       </div>
 
       <h2>Why Convert Images to PDF?</h2>
@@ -61,9 +61,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Choosing the right source format impacts final quality and file size. Here is a breakdown of the most popular formats.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">Format Comparison at a Glance</h3>
-        <ul>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">Format Comparison at a Glance</h3>
+        <ul class="mb-0">
           <li><strong>JPG:</strong> Best for photographs and scanned documents with rich color.</li>
           <li><strong>PNG:</strong> Best for text-heavy images, logos, and screenshots (lossless).</li>
           <li><strong>WEBP:</strong> Best for modern web efficiency, offering smaller files with high quality.</li>
@@ -83,9 +83,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Merging images into a single PDF provides a professional experience. Here is the exact process.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">How to Merge Images (Quick Steps)</h3>
-        <ol>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">How to Merge Images (Quick Steps)</h3>
+        <ol class="mb-0">
           <li>Open ImgToPDF Fast.</li>
           <li>Drag and drop multiple images into the upload area.</li>
           <li>Drag the thumbnails to arrange them in the correct page order.</li>
@@ -105,9 +105,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>File format choice determines how easily information is processed by recipients. PDFs solve the "incompatible file" headache.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">Key Benefits of PDF Sharing</h3>
-        <p><strong>1. Universal Compatibility:</strong> Works on all OS (iOS, Android, Windows, Mac).<br>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">Key Benefits of PDF Sharing</h3>
+        <p class="mb-0"><strong>1. Universal Compatibility:</strong> Works on all OS (iOS, Android, Windows, Mac).<br>
         <strong>2. Layout Preservation:</strong> Formatting stays identical everywhere.<br>
         <strong>3. File Consolidation:</strong> Send one document instead of 20 loose images.</p>
       </div>
@@ -124,9 +124,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>A multi-page PDF is only as good as its organization. Sequencing is everything in storytelling and reporting.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">Quick Tip for Reordering</h3>
-        <p>Use a visual converter that provides <strong>drag-and-drop handles</strong>. This allows you to see a grid of thumbnails and move them spatially to correct mistakes instantly without needing expensive PDF editors.</p>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">Quick Tip for Reordering</h3>
+        <p class="mb-0">Use a visual converter that provides <strong>drag-and-drop handles</strong>. This allows you to see a grid of thumbnails and move them spatially to correct mistakes instantly without needing expensive PDF editors.</p>
       </div>
 
       <p>Don't let a disorganized document ruin your presentation. Learn more about <a href="/blog/combine-multiple-images-into-one-pdf">merging images here</a>.</p>
@@ -141,9 +141,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Choosing the right tool protects your data and saves time. Here is our checklist for quality.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">Checklist for PDF Tools</h3>
-        <ul>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">Checklist for PDF Tools</h3>
+        <ul class="mb-0">
           <li><strong>Client-Side Processing:</strong> Files stay on your device.</li>
           <li><strong>Multiple Formats:</strong> Support for JPG, PNG, and WEBP.</li>
           <li><strong>No Watermarks:</strong> The output should be clean and professional.</li>
@@ -161,9 +161,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Choosing between PDF and image formats depends on your end goal: editing or distribution.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">PDF vs Image Summary</h3>
-        <p>Use <strong>Image files</strong> for raw graphics, social media posts, and visual editing. Use <strong>PDF files</strong> for official documents, multi-page reports, and sharing content that should not be easily modified.</p>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">PDF vs Image Summary</h3>
+        <p class="mb-0">Use <strong>Image files</strong> for raw graphics, social media posts, and visual editing. Use <strong>PDF files</strong> for official documents, multi-page reports, and sharing content that should not be easily modified.</p>
       </div>
 
       <p>Need to switch formats? Check our <a href="/blog/how-to-convert-images-to-pdf-online">conversion guide</a>.</p>
@@ -176,9 +176,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Bridging the gap between physical notes and digital submissions is a critical student skill.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">Student Assignment Workflow</h3>
-        <ol>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">Student Assignment Workflow</h3>
+        <ol class="mb-0">
           <li>Photo your notes with your mobile phone in good lighting.</li>
           <li>Upload to ImgToPDF Fast on your phone or tablet.</li>
           <li>Review the page order to match the assignment criteria.</li>
@@ -196,9 +196,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>In a mobile-first world, you shouldn't need a desktop to create professional documents.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">How to Convert on iPhone/Android</h3>
-        <p>Access ImgToPDF Fast through Safari or Chrome on your mobile device. Tap to select from your Photo Library, drag to reorder thumbnails with your finger, and download directly to your Files app. Local processing saves mobile data.</p>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">How to Convert on iPhone/Android</h3>
+        <p class="mb-0">Access ImgToPDF Fast through Safari or Chrome on your mobile device. Tap to select from your Photo Library, drag to reorder thumbnails with your finger, and download directly to your Files app. Local processing saves mobile data.</p>
       </div>
 
       <p>Learn about mobile format efficiency like <a href="/blog/jpg-vs-png-vs-webp-for-pdf">WEBP vs JPG</a>.</p>
@@ -211,9 +211,9 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Awareness of common pitfalls saves time and ensures your documents look professional.</p>
 
-      <div class="bg-gray-50 border-l-4 border-blue-600 p-6 my-8">
-        <h3 class="mt-0">Top 3 Mistakes to Avoid</h3>
-        <ul>
+      <div class="bg-slate-50 dark:bg-blue-900/10 border-l-4 border-blue-600 p-6 my-8 rounded-r-2xl border-y border-r border-y-transparent border-r-transparent dark:border-blue-800/30">
+        <h3 class="mt-0 dark:text-blue-300">Top 3 Mistakes to Avoid</h3>
+        <ul class="mb-0">
           <li><strong>Low Resolution:</strong> Don't use blurry photos; the PDF won't fix them.</li>
           <li><strong>Wrong Orientation:</strong> Always check if pages are rotated correctly.</li>
           <li><strong>Mixed Page Sizes:</strong> Ensure your source images are consistent if possible.</li>
