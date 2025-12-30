@@ -9,6 +9,8 @@ import PdfSettingsComponent from './components/PdfSettings';
 import FaqSection from './components/FaqSection';
 import SupportBanner from './components/SupportBanner';
 import SupportFooter from './components/SupportFooter';
+import ThemeToggle from './components/ThemeToggle';
+import { ThemeProvider } from './context/ThemeContext';
 import { FileText, Loader2, AlertCircle, BookOpen, Settings2 } from 'lucide-react';
 import { blogPosts } from './blogContent';
 
@@ -19,7 +21,7 @@ const DEFAULT_SETTINGS: PdfSettings = {
   margin: PageMargin.NORMAL,
 };
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [view, setView] = useState<ViewType>('converter');
   const [currentSlug, setCurrentSlug] = useState<string | undefined>(undefined);
   const [status, setStatus] = useState<AppStatus>(AppStatus.IDLE);
@@ -142,27 +144,28 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 flex flex-col transition-colors duration-300">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 py-4 sticky top-0 z-50 shadow-sm">
+      <header className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 py-4 sticky top-0 z-50 shadow-sm transition-colors duration-300">
         <div className="container mx-auto px-4 max-w-4xl flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('converter')}>
             <div className="bg-blue-600 p-2 rounded-lg text-white" aria-hidden="true">
               <FileText size={24} />
             </div>
-            <h1 className="text-xl font-bold text-gray-900 tracking-tight">ImgToPDF Fast</h1>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-slate-100 tracking-tight">ImgToPDF Fast</h1>
           </div>
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-4 sm:gap-6">
             <button 
               onClick={() => navigate('blog')}
-              className={`text-sm font-semibold transition-colors flex items-center gap-2 ${view === 'blog' && !currentSlug ? 'text-blue-600' : 'text-gray-500 hover:text-gray-900'}`}
+              className={`text-sm font-semibold transition-colors flex items-center gap-2 ${view === 'blog' && !currentSlug ? 'text-blue-600' : 'text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-100'}`}
             >
               <BookOpen size={18} />
-              Resources
+              <span className="hidden xs:inline">Resources</span>
             </button>
-            <div className="hidden sm:block text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+            <div className="hidden sm:block text-sm font-medium text-gray-500 dark:text-slate-400 bg-gray-100 dark:bg-slate-800 px-3 py-1 rounded-full">
               Fast & Private
             </div>
+            <ThemeToggle />
           </nav>
         </div>
       </header>
@@ -180,10 +183,10 @@ const App: React.FC = () => {
                 {/* Hero / Step 1 */}
                 <section aria-labelledby="step-1-title">
                   <div className="mb-8 text-center sm:text-left">
-                    <h2 id="step-1-title" className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                    <h2 id="step-1-title" className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-slate-100 mb-4 leading-tight">
                       Convert Images to PDF
                     </h2>
-                    <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
+                    <p className="text-gray-500 dark:text-slate-400 text-lg max-w-2xl leading-relaxed">
                       Transform your JPG, PNG, or WEBP images into a professional PDF document. Fast, secure, and 100% in your browser.
                     </p>
                     
@@ -202,7 +205,7 @@ const App: React.FC = () => {
 
                 {/* Error Message */}
                 {error && (
-                  <div role="alert" className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl flex items-center gap-3 animate-in fade-in duration-300">
+                  <div role="alert" className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 p-4 rounded-xl flex items-center gap-3 animate-in fade-in duration-300">
                     <AlertCircle className="shrink-0" size={20} />
                     <p className="text-sm font-medium">{error}</p>
                   </div>
@@ -213,7 +216,7 @@ const App: React.FC = () => {
                   <section aria-labelledby="step-2-title" className="animate-in slide-in-from-top-2 duration-300 space-y-10">
                     <div>
                       <div className="mb-4">
-                        <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                        <h2 className="text-lg font-semibold text-gray-800 dark:text-slate-200 flex items-center gap-2">
                           <Settings2 size={20} className="text-blue-600" />
                           PDF Settings
                         </h2>
@@ -227,8 +230,8 @@ const App: React.FC = () => {
 
                     <div>
                       <div className="mb-4">
-                        <h2 id="step-2-title" className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-                          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold" aria-hidden="true">2</span>
+                        <h2 id="step-2-title" className="text-lg font-semibold text-gray-800 dark:text-slate-200 flex items-center gap-2">
+                          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold" aria-hidden="true">2</span>
                           Review and Arrange
                         </h2>
                       </div>
@@ -243,7 +246,7 @@ const App: React.FC = () => {
                         <button
                           onClick={handleGeneratePdf}
                           disabled={status === AppStatus.GENERATING}
-                          className="w-full sm:w-80 flex items-center justify-center gap-3 bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed transition-all duration-200 shadow-xl shadow-blue-200"
+                          className="w-full sm:w-80 flex items-center justify-center gap-3 bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 disabled:bg-blue-300 dark:disabled:bg-blue-800/50 disabled:cursor-not-allowed transition-all duration-200 shadow-xl shadow-blue-200 dark:shadow-none"
                         >
                           {status === AppStatus.GENERATING ? (
                             <>
@@ -271,33 +274,33 @@ const App: React.FC = () => {
       <SupportFooter />
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 py-12">
+      <footer className="bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800 py-12 transition-colors duration-300">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h4 className="font-bold text-gray-900 mb-4">ImgToPDF Fast</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <h4 className="font-bold text-gray-900 dark:text-slate-100 mb-4">ImgToPDF Fast</h4>
+              <p className="text-sm text-gray-500 dark:text-slate-400 leading-relaxed">
                 The most secure way to convert images to PDF. Your files never leave your device.
               </p>
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-4">Learn More</h4>
-              <ul className="text-sm text-gray-500 space-y-2">
-                <li><button onClick={() => navigate('blog', 'image-to-pdf-guide')} className="hover:text-blue-600">The Ultimate Guide</button></li>
-                <li><button onClick={() => navigate('blog', 'how-to-convert-images-to-pdf-online')} className="hover:text-blue-600">Quick Start</button></li>
-                <li><button onClick={() => navigate('blog')} className="hover:text-blue-600 font-medium">All Resources</button></li>
+              <h4 className="font-bold text-gray-900 dark:text-slate-100 mb-4">Learn More</h4>
+              <ul className="text-sm text-gray-500 dark:text-slate-400 space-y-2">
+                <li><button onClick={() => navigate('blog', 'image-to-pdf-guide')} className="hover:text-blue-600 dark:hover:text-blue-400">The Ultimate Guide</button></li>
+                <li><button onClick={() => navigate('blog', 'how-to-convert-images-to-pdf-online')} className="hover:text-blue-600 dark:hover:text-blue-400">Quick Start</button></li>
+                <li><button onClick={() => navigate('blog')} className="hover:text-blue-600 dark:hover:text-blue-400 font-medium">All Resources</button></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-4">Trust</h4>
-              <ul className="text-sm text-gray-500 space-y-2">
-                <li className="flex items-center gap-2 text-green-600 font-medium">No data collection</li>
+              <h4 className="font-bold text-gray-900 dark:text-slate-100 mb-4">Trust</h4>
+              <ul className="text-sm text-gray-500 dark:text-slate-400 space-y-2">
+                <li className="flex items-center gap-2 text-green-600 dark:text-green-500 font-medium">No data collection</li>
                 <li className="flex items-center gap-2">Local processing</li>
                 <li className="flex items-center gap-2">Free forever</li>
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-gray-50 text-center text-sm text-gray-400">
+          <div className="pt-8 border-t border-gray-50 dark:border-slate-800 text-center text-sm text-gray-400 dark:text-slate-500">
             <p>&copy; 2025 ImgToPDF Fast. All processing happens in your browser for maximum security.</p>
           </div>
         </div>
@@ -305,5 +308,11 @@ const App: React.FC = () => {
     </div>
   );
 };
+
+const App: React.FC = () => (
+  <ThemeProvider>
+    <AppContent />
+  </ThemeProvider>
+);
 
 export default App;

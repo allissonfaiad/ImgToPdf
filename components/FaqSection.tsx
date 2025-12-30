@@ -39,8 +39,8 @@ const FaqSection: React.FC = () => {
     <div className="space-y-16 my-16 animate-in fade-in duration-700">
       {/* How it Works */}
       <section aria-labelledby="how-it-works-title">
-        <h2 id="how-it-works-title" className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-          <Info className="text-blue-600" size={28} />
+        <h2 id="how-it-works-title" className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-8 flex items-center gap-3">
+          <Info className="text-blue-600 dark:text-blue-400" size={28} />
           How Our Image to PDF Converter Works
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -52,11 +52,11 @@ const FaqSection: React.FC = () => {
             "Click “Convert to PDF”",
             "Download your PDF file instantly"
           ].map((step, i) => (
-            <div key={i} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 text-sm font-bold flex items-center justify-center">
+            <div key={i} className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold flex items-center justify-center">
                 {i + 1}
               </span>
-              <p className="text-sm text-gray-600 font-medium leading-tight mt-1.5">{step}</p>
+              <p className="text-sm text-gray-600 dark:text-slate-400 font-medium leading-tight mt-1.5">{step}</p>
             </div>
           ))}
         </div>
@@ -64,8 +64,8 @@ const FaqSection: React.FC = () => {
 
       {/* Features */}
       <section aria-labelledby="features-title">
-        <h2 id="features-title" className="text-2xl font-bold text-gray-900 mb-8">Image to PDF Converter Features</h2>
-        <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+        <h2 id="features-title" className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-8">Image to PDF Converter Features</h2>
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-gray-100 dark:border-slate-800 shadow-sm">
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
             {[
               "100% free with no watermarks or hidden limitations",
@@ -76,8 +76,8 @@ const FaqSection: React.FC = () => {
               "Margin options: none, small, normal, or large",
               "Fast, secure, and private processing (files stay on your device)"
             ].map((feature, i) => (
-              <li key={i} className="flex items-start gap-3 text-gray-600 text-sm font-medium">
-                <CheckCircle2 size={18} className="text-green-500 flex-shrink-0 mt-0.5" />
+              <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-slate-400 text-sm font-medium">
+                <CheckCircle2 size={18} className="text-green-500 dark:text-green-400 flex-shrink-0 mt-0.5" />
                 {feature}
               </li>
             ))}
@@ -87,55 +87,51 @@ const FaqSection: React.FC = () => {
 
       {/* Why Convert */}
       <section aria-labelledby="why-convert-title">
-        <h2 id="why-convert-title" className="text-2xl font-bold text-gray-900 mb-8">Why Convert Images to PDF?</h2>
+        <h2 id="why-convert-title" className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-8">Why Convert Images to PDF?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-slate-50 p-6 rounded-2xl">
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Professional Documents</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">Convert scanned photos, screenshots, or images into clean PDF files suitable for business, school, or professional use. Ideal for resumes, reports, and presentations.</p>
+          <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-3">Professional Documents</h3>
+            <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">Convert scanned photos, screenshots, or images into clean PDF files suitable for business, school, or professional use. Ideal for resumes, reports, and presentations.</p>
           </div>
-          <div className="bg-slate-50 p-6 rounded-2xl">
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Better Organization</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">Combine multiple images into a single PDF document for easier sharing, storage, and archiving. Perfect for receipts, photo collections, and documentation.</p>
+          <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-3">Better Organization</h3>
+            <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">Combine multiple images into a single PDF document for easier sharing, storage, and archiving. Perfect for receipts, photo collections, and documentation.</p>
           </div>
-          <div className="bg-slate-50 p-6 rounded-2xl">
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Universal Compatibility</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">PDF files display consistently across all devices, browsers, and operating systems, ensuring your documents look the same everywhere.</p>
+          <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-3">Universal Compatibility</h3>
+            <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">PDF files display consistently across all devices, browsers, and operating systems, ensuring your documents look the same everywhere.</p>
           </div>
-          <div className="bg-slate-50 p-6 rounded-2xl">
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Secure File Format</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">PDFs are more secure than editable image files, helping preserve the integrity of important documents when sharing.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-2xl md:col-span-2">
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Reduced File Size</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">Image optimization during PDF conversion often results in smaller files that are easier to email, upload, and store.</p>
+          <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-3">Secure File Format</h3>
+            <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed">PDFs are more secure than editable image files, helping preserve the integrity of important documents when sharing.</p>
           </div>
         </div>
       </section>
 
       {/* FAQ Accordion */}
       <section aria-labelledby="faq-title">
-        <h2 id="faq-title" className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-          <HelpCircle className="text-blue-600" size={28} />
+        <h2 id="faq-title" className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-8 flex items-center gap-3">
+          <HelpCircle className="text-blue-600 dark:text-blue-400" size={28} />
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
           {faqData.map((item, i) => (
-            <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm transition-all duration-200">
+            <div key={i} className="border border-gray-200 dark:border-slate-800 rounded-3xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm transition-all duration-200">
               <button
                 onClick={() => toggleAccordion(i)}
-                className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors"
                 aria-expanded={openIndex === i}
               >
-                <span className="font-bold text-gray-900 text-base sm:text-lg">{item.q}</span>
+                <span className="font-bold text-gray-900 dark:text-slate-100 text-base sm:text-lg">{item.q}</span>
                 {openIndex === i ? (
-                  <ChevronUp size={22} className="text-blue-600 flex-shrink-0" />
+                  <ChevronUp size={22} className="text-blue-600 dark:text-blue-400 flex-shrink-0" />
                 ) : (
-                  <ChevronDown size={22} className="text-gray-400 flex-shrink-0" />
+                  <ChevronDown size={22} className="text-gray-400 dark:text-slate-600 flex-shrink-0" />
                 )}
               </button>
               {openIndex === i && (
-                <div className="px-5 pb-5 text-sm sm:text-base text-gray-600 animate-in slide-in-from-top-4 duration-300">
-                  <div className="pt-2 border-t border-gray-100 mt-2 italic text-gray-500">
+                <div className="px-5 pb-5 text-sm sm:text-base text-gray-600 dark:text-slate-400 animate-in slide-in-from-top-4 duration-300">
+                  <div className="pt-2 border-t border-gray-100 dark:border-slate-800 mt-2 italic text-gray-500 dark:text-slate-500">
                     {item.a}
                   </div>
                 </div>

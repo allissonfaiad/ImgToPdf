@@ -1,4 +1,3 @@
-
 import React, { useCallback, useState } from 'react';
 import { Upload, Image as ImageIcon, X, FileWarning } from 'lucide-react';
 import { ImageData } from '../types';
@@ -63,8 +62,10 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImagesSelected, disable
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      className={`relative border-2 border-dashed rounded-2xl p-8 transition-all duration-200 text-center flex flex-col items-center justify-center min-h-[300px] cursor-pointer
-        ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-gray-300 hover:border-blue-400 hover:bg-gray-50'}
+      className={`relative border-2 border-dashed rounded-3xl p-8 transition-all duration-200 text-center flex flex-col items-center justify-center min-h-[300px] cursor-pointer
+        ${isDragging 
+          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/10' 
+          : 'border-gray-300 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-gray-50 dark:hover:bg-slate-900'}
         ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
       `}
     >
@@ -76,16 +77,16 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImagesSelected, disable
         disabled={disabled}
         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-not-allowed"
       />
-      <div className="bg-blue-100 p-4 rounded-full mb-4">
-        <Upload className="w-8 h-8 text-blue-600" />
+      <div className="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-full mb-4">
+        <Upload className="w-8 h-8 text-blue-600 dark:text-blue-400" />
       </div>
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">
+      <h3 className="text-xl font-semibold text-gray-800 dark:text-slate-100 mb-2">
         {isDragging ? 'Drop images here' : 'Select images to convert'}
       </h3>
-      <p className="text-gray-500 max-w-xs mb-4">
+      <p className="text-gray-500 dark:text-slate-400 max-w-xs mb-4">
         Drag and drop your images here or click to browse. Supports JPG, PNG, WEBP (Max 10MB each).
       </p>
-      <div className="flex gap-4 text-xs font-medium text-gray-400">
+      <div className="flex gap-4 text-xs font-medium text-gray-400 dark:text-slate-500">
         <div className="flex items-center gap-1">
           <ImageIcon size={14} /> 10MB limit
         </div>

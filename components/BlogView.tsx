@@ -49,10 +49,10 @@ const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
   if (slug && !post) {
     return (
       <div className="text-center py-20">
-        <h2 className="text-2xl font-bold text-gray-800">Post not found</h2>
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-slate-200">Post not found</h2>
         <button 
           onClick={() => onNavigate('blog')}
-          className="mt-4 text-blue-600 hover:underline flex items-center justify-center gap-2 mx-auto"
+          className="mt-4 text-blue-600 dark:text-blue-400 hover:underline flex items-center justify-center gap-2 mx-auto"
         >
           <ArrowLeft size={16} /> Back to Blog
         </button>
@@ -65,16 +65,16 @@ const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
       <article className="max-w-3xl mx-auto py-8 px-4 animate-in fade-in duration-500">
         <button 
           onClick={() => onNavigate('blog')}
-          className="mb-8 text-sm font-medium text-gray-500 hover:text-blue-600 flex items-center gap-2 transition-colors"
+          className="mb-8 text-sm font-medium text-gray-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 transition-colors"
         >
           <ArrowLeft size={16} /> Back to articles
         </button>
         
         <header className="mb-10">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-slate-100 mb-6 leading-tight">
             {post.title}
           </h1>
-          <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500 dark:text-slate-400">
             <div className="flex items-center gap-2">
               <Calendar size={16} />
               <span>May 15, 2025</span>
@@ -92,17 +92,17 @@ const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
 
         <div 
           ref={contentRef}
-          className="prose prose-blue max-w-none text-gray-700 leading-relaxed space-y-6"
+          className="prose prose-blue dark:prose-invert max-w-none text-gray-700 dark:text-slate-300 leading-relaxed space-y-6"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
-        <footer className="mt-16 pt-10 border-t border-gray-100">
-          <div className="bg-blue-50 rounded-2xl p-8 text-center">
-            <h3 className="text-xl font-bold text-blue-900 mb-3">Ready to convert?</h3>
-            <p className="text-blue-700 mb-6">Convert your images to high-quality PDF files in seconds, right in your browser.</p>
+        <footer className="mt-16 pt-10 border-t border-gray-100 dark:border-slate-800">
+          <div className="bg-blue-50 dark:bg-blue-900/10 rounded-3xl p-8 text-center border border-blue-100/50 dark:border-blue-800/30">
+            <h3 className="text-xl font-bold text-blue-900 dark:text-blue-300 mb-3">Ready to convert?</h3>
+            <p className="text-blue-700 dark:text-blue-400/80 mb-6">Convert your images to high-quality PDF files in seconds, right in your browser.</p>
             <button 
               onClick={() => onNavigate('converter')}
-              className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
+              className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 dark:shadow-none"
             >
               Go to Converter
             </button>
@@ -115,8 +115,8 @@ const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
       <header className="mb-12 text-center">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Resources & Guides</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h1 className="text-4xl font-extrabold text-gray-900 dark:text-slate-100 mb-4">Resources & Guides</h1>
+        <p className="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
           Everything you need to know about image to PDF conversion, file formats, and digital document management.
         </p>
       </header>
@@ -125,17 +125,17 @@ const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
         {blogPosts.map((post) => (
           <div 
             key={post.slug}
-            className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer"
+            className="group bg-white dark:bg-slate-900 rounded-3xl border border-gray-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer"
             onClick={() => onNavigate('blog', post.slug)}
           >
             <div className="p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {post.title}
               </h2>
-              <p className="text-gray-500 text-sm mb-6 line-clamp-3">
+              <p className="text-gray-500 dark:text-slate-400 text-sm mb-6 line-clamp-3">
                 {post.description}
               </p>
-              <div className="flex items-center text-blue-600 font-semibold text-sm">
+              <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold text-sm">
                 Read guide <ChevronRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
