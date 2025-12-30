@@ -24,16 +24,16 @@ export const blogPosts: BlogPost[] = [
       <h2>Core Topics & Deep Dives</h2>
       <p>Explore our specialized resources to master every aspect of document management:</p>
       <ul>
-        <li><a href="#/blog/how-to-convert-images-to-pdf-online">The Essentials of Online Conversion</a></li>
-        <li><a href="#/blog/jpg-vs-png-vs-webp-for-pdf">Choosing the Right Image Format</a></li>
-        <li><a href="#/blog/combine-multiple-images-into-one-pdf">Merging Multi-Page Documents</a></li>
-        <li><a href="#/blog/convert-images-to-pdf-on-mobile">Mobile Conversion (iPhone & Android)</a></li>
+        <li><a href="/blog/how-to-convert-images-to-pdf-online">The Essentials of Online Conversion</a></li>
+        <li><a href="/blog/jpg-vs-png-vs-webp-for-pdf">Choosing the Right Image Format</a></li>
+        <li><a href="/blog/combine-multiple-images-into-one-pdf">Merging Multi-Page Documents</a></li>
+        <li><a href="/blog/convert-images-to-pdf-on-mobile">Mobile Conversion (iPhone & Android)</a></li>
       </ul>
 
       <h2>Why Trust ImgToPDF Fast?</h2>
       <p>Unlike traditional online tools, our system processes everything within your browser using modern WebAssembly and JavaScript APIs. This means zero server uploads, total privacy, and instant results.</p>
       
-      <p>Ready to start? <a href="#/">Go to the converter</a>.</p>
+      <p>Ready to start? <a href="/">Go to the converter</a>.</p>
     `
   },
   {
@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
       </div>
 
       <h2>Why Convert Images to PDF?</h2>
-      <p>PDFs are universally readable and preserve formatting across all devices. They allow you to consolidate multiple JPG or PNG files into one organized package. For more details, see our <a href="#/blog/image-to-pdf-guide">Complete Image to PDF Guide</a>.</p>
+      <p>PDFs are universally readable and preserve formatting across all devices. They allow you to consolidate multiple JPG or PNG files into one organized package. For more details, see our <a href="/image-to-pdf-guide">Complete Image to PDF Guide</a>.</p>
       
       <p>Try converting your images to PDF for free with ImgToPDF Fast.</p>
     `
@@ -71,7 +71,7 @@ export const blogPosts: BlogPost[] = [
       </div>
 
       <h2>Detailed Analysis</h2>
-      <p>JPEG uses lossy compression, making it great for photos. PNG uses lossless compression, preserving sharp lines in text. WEBP provides the best of both worlds. Learn more about document optimization in our <a href="#/blog/image-to-pdf-guide">Pillar Guide</a>.</p>
+      <p>JPEG uses lossy compression, making it great for photos. PNG uses lossless compression, preserving sharp lines in text. WEBP provides the best of both worlds. Learn more about document optimization in our <a href="/image-to-pdf-guide">Pillar Guide</a>.</p>
       
       <p>Try converting your images to PDF for free with ImgToPDF Fast.</p>
     `
@@ -93,7 +93,7 @@ export const blogPosts: BlogPost[] = [
         </ol>
       </div>
 
-      <p>Proper sequencing is critical for academic and business documents. Check our guide on <a href="#/blog/arrange-images-order-in-pdf">arranging page order</a> for more tips.</p>
+      <p>Proper sequencing is critical for academic and business documents. Check our guide on <a href="/blog/arrange-images-order-in-pdf">arranging page order</a> for more tips.</p>
       
       <p>Try converting your images to PDF for free with ImgToPDF Fast.</p>
     `
@@ -112,7 +112,7 @@ export const blogPosts: BlogPost[] = [
         <strong>3. File Consolidation:</strong> Send one document instead of 20 loose images.</p>
       </div>
 
-      <p>Ready to upgrade your workflow? See the <a href="#/blog/image-to-pdf-guide">Full Guide</a>.</p>
+      <p>Ready to upgrade your workflow? See the <a href="/image-to-pdf-guide">Full Guide</a>.</p>
       
       <p>Try converting your images to PDF for free with ImgToPDF Fast.</p>
     `
@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
         <p>Use a visual converter that provides <strong>drag-and-drop handles</strong>. This allows you to see a grid of thumbnails and move them spatially to correct mistakes instantly without needing expensive PDF editors.</p>
       </div>
 
-      <p>Don't let a disorganized document ruin your presentation. Learn more about <a href="#/blog/combine-multiple-images-into-one-pdf">merging images here</a>.</p>
+      <p>Don't let a disorganized document ruin your presentation. Learn more about <a href="/blog/combine-multiple-images-into-one-pdf">merging images here</a>.</p>
       
       <p>Try converting your images to PDF for free with ImgToPDF Fast.</p>
     `
@@ -151,7 +151,7 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <p>Explore why ImgToPDF Fast meets all these criteria in our <a href="#/blog/image-to-pdf-guide">Pillar Guide</a>.</p>
+      <p>Explore why ImgToPDF Fast meets all these criteria in our <a href="/image-to-pdf-guide">Pillar Guide</a>.</p>
     `
   },
   {
@@ -166,7 +166,7 @@ export const blogPosts: BlogPost[] = [
         <p>Use <strong>Image files</strong> for raw graphics, social media posts, and visual editing. Use <strong>PDF files</strong> for official documents, multi-page reports, and sharing content that should not be easily modified.</p>
       </div>
 
-      <p>Need to switch formats? Check our <a href="#/blog/how-to-convert-images-to-pdf-online">conversion guide</a>.</p>
+      <p>Need to switch formats? Check our <a href="/blog/how-to-convert-images-to-pdf-online">conversion guide</a>.</p>
     `
   },
   {
@@ -186,7 +186,7 @@ export const blogPosts: BlogPost[] = [
         </ol>
       </div>
 
-      <p>For more mobile tips, see <a href="#/blog/convert-images-to-pdf-on-mobile">mobile conversion</a>.</p>
+      <p>For more mobile tips, see <a href="/blog/convert-images-to-pdf-on-mobile">mobile conversion</a>.</p>
     `
   },
   {
@@ -201,7 +201,7 @@ export const blogPosts: BlogPost[] = [
         <p>Access ImgToPDF Fast through Safari or Chrome on your mobile device. Tap to select from your Photo Library, drag to reorder thumbnails with your finger, and download directly to your Files app. Local processing saves mobile data.</p>
       </div>
 
-      <p>Learn about mobile format efficiency like <a href="#/blog/jpg-vs-png-vs-webp-for-pdf">WEBP vs JPG</a>.</p>
+      <p>Learn about mobile format efficiency like <a href="/blog/jpg-vs-png-vs-webp-for-pdf">WEBP vs JPG</a>.</p>
     `
   },
   {
@@ -220,7 +220,7 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <p>Check our <a href="#/blog/image-to-pdf-guide">Pillar Guide</a> for best practices.</p>
+      <p>Check our <a href="/image-to-pdf-guide">Pillar Guide</a> for best practices.</p>
     `
   },
   // Programmatic Pages
@@ -233,7 +233,7 @@ export const blogPosts: BlogPost[] = [
       <p>Need to convert JPG to PDF? Our tool is specifically optimized for JPEG processing. JPG is the most common format for digital photos, but PDFs are better for sharing.</p>
       <h2>Why use JPG for PDF?</h2>
       <p>JPG provides great color depth for photographs. When converted to PDF, these photos become part of a professional document that anyone can open.</p>
-      <p><a href="#/">Convert your JPGs now</a>.</p>
+      <p><a href="/">Convert your JPGs now</a>.</p>
     `
   },
   {
@@ -243,7 +243,7 @@ export const blogPosts: BlogPost[] = [
     isProgrammatic: true,
     content: `
       <p>PNG to PDF conversion is ideal for screenshots, diagrams, and logos. Because PNG is lossless, your text and sharp lines will remain perfect in the final PDF.</p>
-      <p><a href="#/">Start your PNG conversion</a>.</p>
+      <p><a href="/">Start your PNG conversion</a>.</p>
     `
   },
   {
@@ -253,7 +253,7 @@ export const blogPosts: BlogPost[] = [
     isProgrammatic: true,
     content: `
       <p>Converting photos to PDF on iPhone is easy with ImgToPDF Fast. No need to download heavy apps from the App Store. Just use Safari and our local-first tool.</p>
-      <p><a href="#/">Try it on your iPhone now</a>.</p>
+      <p><a href="/">Try it on your iPhone now</a>.</p>
     `
   }
 ];

@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { blogPosts, BlogPost } from '../blogContent';
 import { ArrowLeft, Clock, Calendar, User, ChevronRight } from 'lucide-react';
 
@@ -9,7 +8,43 @@ interface BlogViewProps {
 }
 
 const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
+  const contentRef = useRef<HTMLDivElement>(null);
   const post = slug ? blogPosts.find(p => p.slug === slug) : null;
+
+  // Intercept internal link clicks within the prose content for SPA navigation
+  useEffect(() => {
+    const handleInternalLinks = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      
+      if (anchor && anchor.getAttribute('href')?.startsWith('/')) {
+        e.preventDefault();
+        const href = anchor.getAttribute('href')!;
+        
+        if (href === '/') {
+          onNavigate('converter');
+        } else if (href === '/blog') {
+          onNavigate('blog');
+        } else if (href.startsWith('/blog/')) {
+          const s = href.replace('/blog/', '');
+          onNavigate('blog', s);
+        } else {
+          const s = href.substring(1);
+          onNavigate('blog', s);
+        }
+      }
+    };
+
+    const container = contentRef.current;
+    if (container) {
+      container.addEventListener('click', handleInternalLinks);
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener('click', handleInternalLinks);
+      }
+    };
+  }, [onNavigate, post]);
 
   if (slug && !post) {
     return (
@@ -56,6 +91,7 @@ const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
         </header>
 
         <div 
+          ref={contentRef}
           className="prose prose-blue max-w-none text-gray-700 leading-relaxed space-y-6"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />

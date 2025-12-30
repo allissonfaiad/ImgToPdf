@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect } from 'react';
 import { ImageData, AppStatus } from './types';
 import { generatePdfFromImages } from './services/pdfService';
@@ -7,6 +6,7 @@ import ImageSorter from './components/ImageSorter';
 import PdfPreview from './components/PdfPreview';
 import BlogView from './components/BlogView';
 import { FileText, Loader2, AlertCircle, BookOpen } from 'lucide-react';
+import { blogPosts } from './blogContent';
 
 type ViewType = 'converter' | 'blog';
 
@@ -18,36 +18,70 @@ const App: React.FC = () => {
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Simple routing based on hash
+  // Clean URL routing based on pathname
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash.startsWith('#/blog/')) {
-        const slug = hash.replace('#/blog/', '');
+    const handleLocationChange = () => {
+      const path = window.location.pathname;
+      
+      // 1. Root / Home
+      if (path === '/' || path === '') {
+        setView('converter');
+        setCurrentSlug(undefined);
+      } 
+      // 2. Blog List
+      else if (path === '/blog' || path === '/blog/') {
+        setView('blog');
+        setCurrentSlug(undefined);
+        window.scrollTo(0, 0);
+      } 
+      // 3. Blog Posts
+      else if (path.startsWith('/blog/')) {
+        const slug = path.replace('/blog/', '').replace(/\/$/, '');
         setView('blog');
         setCurrentSlug(slug);
         window.scrollTo(0, 0);
-      } else if (hash === '#/blog') {
-        setView('blog');
-        setCurrentSlug(undefined);
-        window.scrollTo(0, 0);
-      } else {
-        setView('converter');
-        setCurrentSlug(undefined);
+      } 
+      // 4. Pillar & Programmatic pages (root-level slugs)
+      else {
+        const slug = path.substring(1).replace(/\/$/, '');
+        const postExists = blogPosts.some(p => p.slug === slug);
+        if (postExists) {
+          setView('blog');
+          setCurrentSlug(slug);
+          window.scrollTo(0, 0);
+        } else {
+          // Fallback to converter or 404 (here we fallback to home)
+          setView('converter');
+          setCurrentSlug(undefined);
+        }
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange(); // Initial check
+    window.addEventListener('popstate', handleLocationChange);
+    handleLocationChange(); // Initial check
 
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
 
   const navigate = (newView: ViewType, slug?: string) => {
+    let url = '/';
     if (newView === 'blog') {
-      window.location.hash = slug ? `#/blog/${slug}` : `#/blog`;
-    } else {
-      window.location.hash = '#/';
+      if (!slug) {
+        url = '/blog';
+      } else {
+        // Special logic for slugs requested at root level vs /blog/ level
+        const post = blogPosts.find(p => p.slug === slug);
+        if (post?.isPillar || post?.isProgrammatic) {
+          url = `/${slug}`;
+        } else {
+          url = `/blog/${slug}`;
+        }
+      }
+    }
+    
+    if (window.location.pathname !== url) {
+      window.history.pushState({}, '', url);
+      window.dispatchEvent(new PopStateEvent('popstate'));
     }
   };
 
@@ -111,7 +145,7 @@ const App: React.FC = () => {
           <nav className="flex items-center gap-6">
             <button 
               onClick={() => navigate('blog')}
-              className={`text-sm font-semibold transition-colors flex items-center gap-2 ${view === 'blog' ? 'text-blue-600' : 'text-gray-500 hover:text-gray-900'}`}
+              className={`text-sm font-semibold transition-colors flex items-center gap-2 ${view === 'blog' && !currentSlug ? 'text-blue-600' : 'text-gray-500 hover:text-gray-900'}`}
             >
               <BookOpen size={18} />
               Resources
