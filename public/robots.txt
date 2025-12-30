@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imgtopdf-fast.vercel.app/sitemap.xml
