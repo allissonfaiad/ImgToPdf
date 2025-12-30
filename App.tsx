@@ -7,6 +7,8 @@ import PdfPreview from './components/PdfPreview';
 import BlogView from './components/BlogView';
 import PdfSettingsComponent from './components/PdfSettings';
 import FaqSection from './components/FaqSection';
+import SupportBanner from './components/SupportBanner';
+import SupportFooter from './components/SupportFooter';
 import { FileText, Loader2, AlertCircle, BookOpen, Settings2 } from 'lucide-react';
 import { blogPosts } from './blogContent';
 
@@ -184,6 +186,9 @@ const App: React.FC = () => {
                     <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
                       Transform your JPG, PNG, or WEBP images into a professional PDF document. Fast, secure, and 100% in your browser.
                     </p>
+                    
+                    {/* SUPPORT BANNER (TOP) */}
+                    <SupportBanner />
                   </div>
                   
                   <ImageUploader 
@@ -261,6 +266,9 @@ const App: React.FC = () => {
           </>
         )}
       </main>
+
+      {/* SUPPORT FOOTER (BOTTOM - ABOVE FOOTER) */}
+      <SupportFooter />
 
       {/* Footer */}
       <footer className="bg-white border-t border-gray-100 py-12">
