@@ -1,54 +1,70 @@
 
 import { jsPDF } from 'jspdf';
-import { ImageData } from '../types';
+import { ImageData, PdfSettings, MARGIN_MAP } from '../types';
 
 /**
  * Converts a list of ImageData to a PDF Blob.
  * Each image becomes a page in the PDF.
  */
-export const generatePdfFromImages = async (images: ImageData[]): Promise<Blob> => {
+export const generatePdfFromImages = async (
+  images: ImageData[],
+  settings: PdfSettings
+): Promise<Blob> => {
   return new Promise(async (resolve, reject) => {
     try {
+      const { orientation, margin: marginKey } = settings;
+      const margin = MARGIN_MAP[marginKey];
+
       const pdf = new jsPDF({
-        orientation: 'p',
-        unit: 'px',
+        orientation: orientation,
+        unit: 'mm',
         format: 'a4',
         compress: true,
       });
 
-      // PDF Page dimensions (px)
+      // PDF Page dimensions (mm)
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      const safeWidth = pdfWidth - (margin * 2);
+      const safeHeight = pdfHeight - (margin * 2);
 
       for (let i = 0; i < images.length; i++) {
         const imgData = images[i];
         
         // Add a new page if it's not the first one
         if (i > 0) {
-          pdf.addPage();
+          pdf.addPage(orientation === 'p' ? 'p' : 'l', 'a4');
         }
 
         const img = await loadImage(imgData.previewUrl);
         
-        // Calculate dimensions to fit image to A4 while maintaining aspect ratio
-        let width = img.width;
-        let height = img.height;
-        const ratio = width / height;
+        // Calculate dimensions to fit image to safe area while maintaining aspect ratio
+        let imgWidth = img.width;
+        let imgHeight = img.height;
+        const ratio = imgWidth / imgHeight;
 
-        if (width > pdfWidth) {
-          width = pdfWidth;
-          height = width / ratio;
+        // Scale to fit safe area
+        if (imgWidth > safeWidth) {
+          imgWidth = safeWidth;
+          imgHeight = imgWidth / ratio;
         }
-        if (height > pdfHeight) {
-          height = pdfHeight;
-          width = height * ratio;
+        if (imgHeight > safeHeight) {
+          imgHeight = safeHeight;
+          imgWidth = imgHeight * ratio;
         }
 
-        // Center the image on the page
-        const x = (pdfWidth - width) / 2;
-        const y = (pdfHeight - height) / 2;
+        // Second pass scaling if still too big (e.g. very wide after height scale)
+        if (imgWidth > safeWidth) {
+          imgWidth = safeWidth;
+          imgHeight = imgWidth / ratio;
+        }
 
-        pdf.addImage(img, 'JPEG', x, y, width, height, undefined, 'FAST');
+        // Center the image within the safe area (plus margin offset)
+        const x = margin + (safeWidth - imgWidth) / 2;
+        const y = margin + (safeHeight - imgHeight) / 2;
+
+        pdf.addImage(img, 'JPEG', x, y, imgWidth, imgHeight, undefined, 'FAST');
       }
 
       const pdfOutput = pdf.output('blob');

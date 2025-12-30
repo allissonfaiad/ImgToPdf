@@ -1,20 +1,28 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { ImageData, AppStatus } from './types';
+import { ImageData, AppStatus, PdfSettings, PageMargin } from './types';
 import { generatePdfFromImages } from './services/pdfService';
 import ImageUploader from './components/ImageUploader';
 import ImageSorter from './components/ImageSorter';
 import PdfPreview from './components/PdfPreview';
 import BlogView from './components/BlogView';
-import { FileText, Loader2, AlertCircle, BookOpen } from 'lucide-react';
+import PdfSettingsComponent from './components/PdfSettings';
+import FaqSection from './components/FaqSection';
+import { FileText, Loader2, AlertCircle, BookOpen, Settings2 } from 'lucide-react';
 import { blogPosts } from './blogContent';
 
 type ViewType = 'converter' | 'blog';
+
+const DEFAULT_SETTINGS: PdfSettings = {
+  orientation: 'p',
+  margin: PageMargin.NORMAL,
+};
 
 const App: React.FC = () => {
   const [view, setView] = useState<ViewType>('converter');
   const [currentSlug, setCurrentSlug] = useState<string | undefined>(undefined);
   const [status, setStatus] = useState<AppStatus>(AppStatus.IDLE);
   const [images, setImages] = useState<ImageData[]>([]);
+  const [pdfSettings, setPdfSettings] = useState<PdfSettings>(DEFAULT_SETTINGS);
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -69,7 +77,6 @@ const App: React.FC = () => {
       if (!slug) {
         url = '/blog';
       } else {
-        // Special logic for slugs requested at root level vs /blog/ level
         const post = blogPosts.find(p => p.slug === slug);
         if (post?.isPillar || post?.isProgrammatic) {
           url = `/${slug}`;
@@ -110,7 +117,7 @@ const App: React.FC = () => {
     setError(null);
 
     try {
-      const pdfBlob = await generatePdfFromImages(images);
+      const pdfBlob = await generatePdfFromImages(images, pdfSettings);
       const url = URL.createObjectURL(pdfBlob);
       setPdfUrl(url);
       setStatus(AppStatus.COMPLETED);
@@ -127,6 +134,7 @@ const App: React.FC = () => {
     
     setImages([]);
     setPdfUrl(null);
+    setPdfSettings(DEFAULT_SETTINGS);
     setStatus(AppStatus.IDLE);
     setError(null);
   };
@@ -169,18 +177,22 @@ const App: React.FC = () => {
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 {/* Hero / Step 1 */}
                 <section aria-labelledby="step-1-title">
-                  <div className="mb-6 text-center sm:text-left">
-                    <h2 id="step-1-title" className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">
+                  <div className="mb-8 text-center sm:text-left">
+                    <h2 id="step-1-title" className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
                       Convert Images to PDF
                     </h2>
-                    <p className="text-gray-500 max-w-lg">
+                    <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
                       Transform your JPG, PNG, or WEBP images into a professional PDF document. Fast, secure, and 100% in your browser.
                     </p>
                   </div>
+                  
                   <ImageUploader 
                     onImagesSelected={handleImagesSelected} 
                     disabled={status === AppStatus.GENERATING} 
                   />
+
+                  {/* Informational Sections for SEO and UX */}
+                  {images.length === 0 && <FaqSection />}
                 </section>
 
                 {/* Error Message */}
@@ -191,40 +203,56 @@ const App: React.FC = () => {
                   </div>
                 )}
 
-                {/* Step 2: Sort & Generate */}
+                {/* Step 2: Settings & Reorder */}
                 {images.length > 0 && (
-                  <section aria-labelledby="step-2-title" className="animate-in slide-in-from-top-2 duration-300">
-                    <div className="mb-4">
-                      <h2 id="step-2-title" className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-                        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold" aria-hidden="true">2</span>
-                        Review and Arrange
-                      </h2>
+                  <section aria-labelledby="step-2-title" className="animate-in slide-in-from-top-2 duration-300 space-y-10">
+                    <div>
+                      <div className="mb-4">
+                        <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                          <Settings2 size={20} className="text-blue-600" />
+                          PDF Settings
+                        </h2>
+                      </div>
+                      <PdfSettingsComponent 
+                        settings={pdfSettings} 
+                        onChange={setPdfSettings} 
+                        disabled={status === AppStatus.GENERATING} 
+                      />
                     </div>
-                    
-                    <ImageSorter 
-                      images={images} 
-                      onReorder={handleReorder} 
-                      onRemove={handleRemove} 
-                    />
 
-                    <div className="mt-12 sticky bottom-8 flex justify-center">
-                      <button
-                        onClick={handleGeneratePdf}
-                        disabled={status === AppStatus.GENERATING}
-                        className="w-full sm:w-80 flex items-center justify-center gap-3 bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed transition-all duration-200 shadow-xl shadow-blue-200"
-                      >
-                        {status === AppStatus.GENERATING ? (
-                          <>
-                            <Loader2 className="animate-spin" size={24} aria-hidden="true" />
-                            Generating PDF...
-                          </>
-                        ) : (
-                          <>
-                            <FileText size={24} aria-hidden="true" />
-                            Convert to PDF Now
-                          </>
-                        )}
-                      </button>
+                    <div>
+                      <div className="mb-4">
+                        <h2 id="step-2-title" className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs font-bold" aria-hidden="true">2</span>
+                          Review and Arrange
+                        </h2>
+                      </div>
+                      
+                      <ImageSorter 
+                        images={images} 
+                        onReorder={handleReorder} 
+                        onRemove={handleRemove} 
+                      />
+
+                      <div className="mt-12 sticky bottom-8 flex justify-center z-40">
+                        <button
+                          onClick={handleGeneratePdf}
+                          disabled={status === AppStatus.GENERATING}
+                          className="w-full sm:w-80 flex items-center justify-center gap-3 bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed transition-all duration-200 shadow-xl shadow-blue-200"
+                        >
+                          {status === AppStatus.GENERATING ? (
+                            <>
+                              <Loader2 className="animate-spin" size={24} aria-hidden="true" />
+                              Generating PDF...
+                            </>
+                          ) : (
+                            <>
+                              <FileText size={24} aria-hidden="true" />
+                              Convert to PDF Now
+                            </>
+                          )}
+                        </button>
+                      </div>
                     </div>
                   </section>
                 )}
@@ -255,7 +283,7 @@ const App: React.FC = () => {
             <div>
               <h4 className="font-bold text-gray-900 mb-4">Trust</h4>
               <ul className="text-sm text-gray-500 space-y-2">
-                <li className="flex items-center gap-2">No data collection</li>
+                <li className="flex items-center gap-2 text-green-600 font-medium">No data collection</li>
                 <li className="flex items-center gap-2">Local processing</li>
                 <li className="flex items-center gap-2">Free forever</li>
               </ul>
